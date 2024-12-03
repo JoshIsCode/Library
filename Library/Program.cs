@@ -20,6 +20,12 @@ namespace Library
         };
         static void Main(string[] args)
         {
+
+            Book b = Book.JSONToBook(@"C:\Users\s123325\source\repos\Library\Library\books\harry-potter-book-1-updated.json");
+            Console.WriteLine(b);
+            BookReader reader = new BookReader();
+            reader.open(b);
+
             drawPageBorder(Console.WindowWidth, Console.WindowHeight);
 
             Console.SetCursorPosition(2, 1);
@@ -28,23 +34,39 @@ namespace Library
             {
                 printInLine(line);
             }
+            printInLine(new string('-', Console.WindowWidth - 4));
+
+            int tileWidth = Console.WindowWidth / 6;
+            int tileHeight = (int)(tileWidth*0.6);
+
+            List<BookCard> bookCards = new List<BookCard>();
+            bookCards.Add(new BookCard(b, tileWidth, tileHeight));
+
+            foreach (BookCard bookCard in bookCards)
+            {
+                printInLine(bookCard.ToString());
+            }
+
+
+
             
 
             Console.ReadKey(true);
 
             //Console.
 
-            //Book b = Book.JSONToBook(@"C:\Users\s123325\source\repos\Library\Library\books\harry-potter-book-1-updated.json");
-            //Console.WriteLine(b);
-            //BookReader reader = new BookReader();
-            //reader.open(b);
+            
         }
 
         private static void printInLine(string text)
         {
             int left = Console.CursorLeft;
-            Console.WriteLine(text);
-            Console.SetCursorPosition(left, Console.CursorTop);
+            foreach (string line in text.Split('\n'))
+            {
+                Console.WriteLine(line);
+                Console.SetCursorPosition(left, Console.CursorTop);
+            }
+            
         }
 
         private static void drawPageBorder(int w, int h)
