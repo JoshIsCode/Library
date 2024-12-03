@@ -1,0 +1,11 @@
+﻿{
+  "Joshua": {
+    "password": "12345",
+    "checked_books": [
+      {
+        "book_id": 0,
+        "date": [1,1,2023]
+      }
+    ]
+  }
+}

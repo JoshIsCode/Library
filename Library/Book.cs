@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.IO.Compression;
 using System.IO;
+using System.Xml;
+using System.Text.Json;
+using System.Xml.Linq;
 
 namespace Library
 {
@@ -15,20 +18,34 @@ namespace Library
     internal class Book
     {
 
-        private Chapter[] Chapters;
-        public readonly string Title;
-        public readonly string Author;
-        public readonly string Publisher;
-        public readonly Genre genre;
+        public Chapter[] Chapters { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public Genre genre { get; set; }
 
-        public Book(string title, string author, Genre genre, string publisher, Chapter[] chapters) {
+        public Book(string title, string author, Genre genre, Chapter[] chapters) {
             Chapters = chapters;
             Title = title;
-            Publisher = publisher;
             Author = author;
             this.genre = genre;
         }
 
+        override public string ToString ()
+        {
+            return $"Title: {Title} | Author: {Author} | Genre: {genre} ";
+        }
+
+
+        public static Book JSONToBook(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                string jsonString = File.ReadAllText(filePath);
+                Book obj = JsonSerializer.Deserialize<Book>(jsonString);
+                return obj;
+            }
+            return null;
+        }
 
         public static Book EpubToBook(string filePath)
         {
@@ -38,7 +55,6 @@ namespace Library
                 {
                     using (ZipArchive archive = ZipFile.OpenRead(filePath))
                     {
-                        Console.WriteLine("Contents of the ZIP file:");
 
                         var mimetype = archive.GetEntry("mimetype");
 
@@ -75,15 +91,80 @@ namespace Library
 
         private static Book makeBookFromEpub(ZipArchive archive)
         {
-            foreach (ZipArchiveEntry entry in archive.Entries)
+            ZipArchiveEntry content = archive.GetEntry("content.opf");
+
+            if (content == null)
             {
-                // Check if the entry belongs to the specified directory
-                if (entry.FullName.StartsWith("OEBPS", StringComparison.OrdinalIgnoreCase)&&entry.FullName.EndsWith(".xhtml"))
+                Console.WriteLine($"Unable to find content file or content file is empty");
+                return null;
+            }  
+
+            using (var reader = new StreamReader(content.Open()))
+            {
+                XmlDocument doc = new XmlDocument();
+                XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
+                nsmgr.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
+                nsmgr.AddNamespace("opf", "http://www.idpf.org/2007/opf");
+                doc.LoadXml(reader.ReadToEnd());
+                //string author = doc.SelectSingleNode();
+
+                // Book Metadata
+
+                string author = "N/A";
+                string title = "N/A";
+
+                XmlNode metadata = doc.SelectSingleNode(@"//opf:package/opf:metadata", nsmgr);
+                if (metadata != null)
                 {
-                    Console.WriteLine("Found file: " + entry.FullName);
-                    
+                    XmlNode authorNode = metadata.SelectSingleNode("dc:creator", nsmgr);
+                    author = authorNode.InnerText ?? "N/A";
+                    XmlNode titeNode = metadata.SelectSingleNode("dc:title", nsmgr);
+                    title = titeNode.InnerText ?? "N/A";
                 }
+
+                XmlNode manifest = doc.SelectSingleNode(@"//opf:package/opf:manifest", nsmgr);
+                if (manifest == null) return null;
+
+                Dictionary<string, string> items = new Dictionary<string, string>();
+                Console.WriteLine("Manifest: " + manifest.Name);
+           
+                foreach (XmlNode node in manifest.ChildNodes)
+                {
+                    string href = node.Attributes["href"].Value;
+                    string id = node.Attributes["id"].Value;
+                    items[id] = href;
+                    Console.WriteLine(href + " " + id);
+                }
+
+
+
+                
+
+                // Get Chapters
+
+
+
+                //foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+                //{
+
+                //    string text = node.Name; //or loop through its children as well
+                //    Console.WriteLine($"{ text}");
+                //    foreach (XmlNode childNode in node.ChildNodes)
+                //    {
+                //        text = childNode.Name;
+                //        Console.WriteLine($"{text}");
+                //    }
+                //}
             }
+            //foreach (ZipArchiveEntry entry in archive.Entries)
+            //{
+            //    // Check if the entry belongs to the specified directory
+            //    if (entry.FullName.StartsWith("OEBPS", StringComparison.OrdinalIgnoreCase)&&entry.FullName.EndsWith(".xhtml"))
+            //    {
+            //        Console.WriteLine("Found file: " + entry.FullName);
+                    
+            //    }
+            //}
             return null;
         }
 
@@ -91,15 +172,13 @@ namespace Library
 
     class Chapter
     {
-        public readonly string[] Paragraphs;
-        public readonly string Name;
-        public readonly int Id;
+        public string[] Paragraphs { get; set; }
+        public string Name { get; set; }
 
-        public Chapter(string name, int id, string[] paragraphs)
+        public Chapter(string name, string[] paragraphs)
         {
             Paragraphs = paragraphs;
             Name = name;
-            Id = id;
         }
     }
 
