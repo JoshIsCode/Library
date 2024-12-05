@@ -1,0 +1,113 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\s123325\\source\\repos\\EBookProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|c:\\users\\s123325\\source\\repos\\ebookproject\\ebookproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|solutionrelative:ebookproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|c:\\users\\s123325\\source\\repos\\ebookproject\\ebookproject\\bookcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|solutionrelative:ebookproject\\bookcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|c:\\users\\s123325\\source\\repos\\ebookproject\\ebookproject\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|solutionrelative:ebookproject\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|c:\\users\\s123325\\source\\repos\\ebookproject\\ebookproject\\bookreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|solutionrelative:ebookproject\\bookreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|c:\\users\\s123325\\source\\repos\\ebookproject\\ebookproject\\books\\book1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9456D4DC-04D7-4337-9557-B93559ECFA75}|EbookProject\\EbookProject.csproj|solutionrelative:ebookproject\\books\\book1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\Book.cs",
+              "RelativeDocumentMoniker": "EbookProject\\Book.cs",
+              "ToolTip": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\Book.cs",
+              "RelativeToolTip": "EbookProject\\Book.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T19:39:17.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book1.json",
+              "DocumentMoniker": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\books\\Book1.json",
+              "RelativeDocumentMoniker": "EbookProject\\books\\Book1.json",
+              "ToolTip": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\books\\Book1.json",
+              "RelativeToolTip": "EbookProject\\books\\Book1.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-05T20:15:15.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookCard.cs",
+              "DocumentMoniker": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\BookCard.cs",
+              "RelativeDocumentMoniker": "EbookProject\\BookCard.cs",
+              "ToolTip": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\BookCard.cs",
+              "RelativeToolTip": "EbookProject\\BookCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T19:39:19.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookReader.cs",
+              "DocumentMoniker": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\BookReader.cs",
+              "RelativeDocumentMoniker": "EbookProject\\BookReader.cs",
+              "ToolTip": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\BookReader.cs",
+              "RelativeToolTip": "EbookProject\\BookReader.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAQwDoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T19:27:42.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\Program.cs",
+              "RelativeDocumentMoniker": "EbookProject\\Program.cs",
+              "ToolTip": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\Program.cs",
+              "RelativeToolTip": "EbookProject\\Program.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAowL8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T19:18:16.559Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

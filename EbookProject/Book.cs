@@ -32,6 +32,14 @@ namespace EBookProject
             Genre = genre;
         }
 
+        public Book()
+        {
+            Chapters = [new Chapter("emtpy", new string[] { "empty chapter" })];
+            Title = "Default Book";
+            Author = "Nobody";
+            Genre = "none";
+        }
+
         override public string ToString ()
         {
             return $"Title: {Title} | Author: {Author} | Genre: {Genre} ";
@@ -49,126 +57,7 @@ namespace EBookProject
             return null;
         }
 
-        // public static Book EpubToBook(string filePath)
-        // {
-        //     if (File.Exists(filePath))
-        //     {
-        //         try
-        //         {
-        //             using (ZipArchive archive = ZipFile.OpenRead(filePath))
-        //             {
-
-        //                 var mimetype = archive.GetEntry("mimetype");
-
-        //                 if (mimetype != null)
-        //                 {
-        //                     // Read the file's content (assuming it's a text file in this case)
-        //                     using (var reader = new StreamReader(mimetype.Open()))
-        //                     {
-        //                         string content = reader.ReadToEnd();
-        //                         if (content == "application/epub+zip")
-        //                         {
-        //                             return makeBookFromEpub(archive);
-        //                         }
-        //                     }
-        //                 }
-        //                 else
-        //                 {
-        //                     Console.WriteLine($"File 'mimetype' with extension '.mimetype' not found in the archive.");
-        //                 }
-        //             }
-        //         }
-        //         catch (Exception e)
-        //         {
-        //             Console.WriteLine("invalid file type");
-        //         }
-                
-        //     } else
-        //     {
-        //         Console.WriteLine("no file found");
-        //     }
-            
-        //     return null;
-        // }
-
-        // // private static Book makeBookFromEpub(ZipArchive archive)
-        // // {
-        // //     ZipArchiveEntry content = archive.GetEntry("content.opf");
-
-        // //     if (content == null)
-        // //     {
-        // //         Console.WriteLine($"Unable to find content file or content file is empty");
-        // //         return null;
-        // //     }  
-
-        // //     using (var reader = new StreamReader(content.Open()))
-        // //     {
-        // //         XmlDocument doc = new XmlDocument();
-        // //         XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-        // //         nsmgr.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
-        // //         nsmgr.AddNamespace("opf", "http://www.idpf.org/2007/opf");
-        // //         doc.LoadXml(reader.ReadToEnd());
-        // //         //string author = doc.SelectSingleNode();
-
-        // //         // Book Metadata
-
-        // //         string author = "N/A";
-        // //         string title = "N/A";
-
-        // //         XmlNode metadata = doc.SelectSingleNode(@"//opf:package/opf:metadata", nsmgr);
-        // //         if (metadata != null)
-        // //         {
-        // //             XmlNode authorNode = metadata.SelectSingleNode("dc:creator", nsmgr);
-        // //             author = authorNode.InnerText ?? "N/A";
-        // //             XmlNode titeNode = metadata.SelectSingleNode("dc:title", nsmgr);
-        // //             title = titeNode.InnerText ?? "N/A";
-        // //         }
-
-        // //         XmlNode manifest = doc.SelectSingleNode(@"//opf:package/opf:manifest", nsmgr);
-        // //         if (manifest == null) return null;
-
-        // //         Dictionary<string, string> items = new Dictionary<string, string>();
-        // //         Console.WriteLine("Manifest: " + manifest.Name);
-           
-        // //         foreach (XmlNode node in manifest.ChildNodes)
-        // //         {
-        // //             string href = node.Attributes["href"].Value;
-        // //             string id = node.Attributes["id"].Value;
-        // //             items[id] = href;
-        // //             Console.WriteLine(href + " " + id);
-        // //         }
-
-
-
-                
-
-        //         // Get Chapters
-
-
-
-        //         //foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-        //         //{
-
-        //         //    string text = node.Name; //or loop through its children as well
-        //         //    Console.WriteLine($"{ text}");
-        //         //    foreach (XmlNode childNode in node.ChildNodes)
-        //         //    {
-        //         //        text = childNode.Name;
-        //         //        Console.WriteLine($"{text}");
-        //         //    }
-        //         //}
-        //     }
-        //     //foreach (ZipArchiveEntry entry in archive.Entries)
-        //     //{
-        //     //    // Check if the entry belongs to the specified directory
-        //     //    if (entry.FullName.StartsWith("OEBPS", StringComparison.OrdinalIgnoreCase)&&entry.FullName.EndsWith(".xhtml"))
-        //     //    {
-        //     //        Console.WriteLine("Found file: " + entry.FullName);
-                    
-        //     //    }
-        //     //}
-        //     // return null;
-        // }
+      
 
     }
 
@@ -184,7 +73,7 @@ namespace EBookProject
         }
     }
 }
-
+// Archived genre class
 //     public class Genre
 //     {
 //         public readonly bool IsNonFiction;

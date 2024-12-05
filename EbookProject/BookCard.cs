@@ -15,10 +15,14 @@ namespace EBookProject
     internal class BookCard
     {
 
-        private char[] border = { '─', '│', '┌', '┐', '└', '┘' };
         private char[] highLightedBorder = {'━','┃','█','█','█','█'};
 
-        public Book Book;
+        private Book Book;
+
+        public Book getBook()
+        {
+            return Book;
+        }
 
         public bool highlight = false;
 
@@ -52,7 +56,7 @@ namespace EBookProject
             highlight = selected;
             // add 
 
-            char[] border = highlight?this.highLightedBorder : this.border;
+            char[] border = highlight?this.highLightedBorder : Program.border;
 
             string output =  "" + border[2] + new string(border[0], Width-2) + border[3] + "\n";
 
@@ -78,7 +82,7 @@ namespace EBookProject
         }
 
         private string createLine(string line){
-            char[] border = highlight?this.highLightedBorder : this.border;
+            char[] border = highlight?this.highLightedBorder : Program.border;
             return border[1] + new string(' ',Math.Max((width-2-line.Length)/2,0)) + line + new string(' ',Math.Max((width-1-line.Length)/2,0)) + border[1];
         }
 

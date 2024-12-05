@@ -5,12 +5,46 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ *  Ignite Ebook Platform
+ *  By Joshua Karr
+ *  
+ *  This quick prototype console application is an ebook reader similar to the Amazon Kindle. 
+ *  
+ *  Current Features:
+ *   - Adaptive sized menu with genreated Book Covers.
+ *   - Adaptive sized book reader that breaks chapters into pages and allows you to read the book
+ *   
+ *   How to Use:
+ *    - Run the script (if the window is to small then you will have to resize it and press any arrow key;
+ *    - Use arrow keys to select different books.
+ *    - Cick escape to close the program
+ *    - Click enter to open the book in the reader.
+ *    - Click left or right to flip through pages
+ *    - Click escape to close out of book reader and return to menu
+ *   
+ *   Program class:
+ *    - Main functions and runs the menu application.
+ *    - Imports books from a directory formated as JSON
+ *    
+ *   Book Class:
+ *    - Holds the data about the book that is stored in the json files
+ *    - Holds chapter class which organises the paragraphs and chapter name
+ *   
+ *   BookCard Class:
+ *    - Generates the graphical text book covers that are in the menu and stores the book that they correspond to
+ *    
+ *    BookReader Class:
+ *     - Takes a book instance and create a graphical interface to read the book
+ *     - Splits the chaptres up into book and handles inputs
+ */
+
 namespace EBookProject
 {
     internal class Program
     {
 
-        static string[] title =
+        private static string[] title =
         {
             @"  _____            _ _       ",
             @"  \_   \__ _ _ __ (_| |_ ___ ",
@@ -20,61 +54,54 @@ namespace EBookProject
             @"       |___/                 "
         };
 
-        public static List<BookCard> bookCards;
+        public static char[] border = { '─', '│', '┌', '┐', '└', '┘' };
 
-        static int tileWidth;
-        static int tileHeight;
+        private static List<BookCard> bookCards;
+
+        private static int tileWidth;
+        private static int tileHeight;
 
         static int selected = 0;
         static void Main(string[] args)
         {
-
-            Book b = Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/Book1.json");
-            Console.WriteLine(b);
+            string path = @"C:\Users\s123325\source\repos\EBookProject\EbookProject\books\";
+            Encoding e = Encoding.GetEncoding("iso-8859-1");
+            Console.OutputEncoding = Encoding.UTF8;
 
             tileWidth = Console.WindowWidth / 6;
             tileHeight = (int)(tileWidth*0.6);
-
+            // input books
             bookCards = new List<BookCard>();
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/Book1.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Last_Leaf.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Mysterious_Lighthouse.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Clockmaker's_Apprentice.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Silent_Watchman.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Time_Traveler's_Diary.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Whispering_Forest.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Shadow_in_the_Library.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Forgotten_Kingdom.json"),tileWidth,tileHeight));
-            bookCards.Add(new BookCard(Book.JSONToBook(@"/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/books/The_Secret_Beneath_the_Lake.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(new Book(), tileWidth, tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Last_Leaf.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Mysterious_Lighthouse.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Clockmaker's_Apprentice.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Silent_Watchman.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Time_Traveler's_Diary.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Whispering_Forest.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Shadow_in_the_Library.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Forgotten_Kingdom.json"),tileWidth,tileHeight));
+            bookCards.Add(new BookCard(Book.JSONToBook(path + "The_Secret_Beneath_the_Lake.json"),tileWidth,tileHeight));
 
             
 
-            menuPage();
-
-            
-
-            
-
-            Console.ReadKey(true);
-
-            //Console.
-
-            
+            MenuPage();
         }
 
-        private static void menuPage(){
-            drawPageBorder(Console.WindowWidth, Console.WindowHeight);
+        // draws the book menu
+        public static void MenuPage(){
+            DrawPageBorder(Console.WindowWidth, Console.WindowHeight);
 
             Console.SetCursorPosition(2, 1);
 
             foreach (string line in title)
             {
-                printInLine(line);
+                PrintInLine(line);
             }
-            printInLine(new string('-', Console.WindowWidth - 4));
+            PrintInLine(new string('-', Console.WindowWidth - 4));
 
-            Console.CursorVisible = true;
-            
+            Console.CursorVisible = false;
+
 
             List<List<int>> grid = new List<List<int>>();
             bool running = true;
@@ -104,19 +131,21 @@ namespace EBookProject
             selectedR = selected/grid.Count;
             selectedC = selected % grid[0].Count;
 
+            // redraw loop for when selection is changed
             while (running){
                 int top = firstTop;
+                // Look to see if a resize is needed;
                 if (Console.WindowHeight != hieght || Console.WindowWidth != width){
-                    menuPage();
+                    MenuPage();
                     return;
                 }
-                // Look if resize is needed:
-
                 
+
+                // print each tile
                 for (int i = 0; i < grid.Count; i++)
                 {
                     for (int j = 0; j < grid[i].Count; j++){
-                        printInLine(bookCards[i*grid[i].Count+j].Display(i*grid[i].Count+j==selected), true);
+                        PrintInLine(bookCards[i*grid[i].Count+j].Display(i*grid[i].Count+j==selected), true);
                         if (j < grid[i].Count - 1)
                             Console.SetCursorPosition(Console.CursorLeft, top);
                     }
@@ -125,7 +154,7 @@ namespace EBookProject
                     top = Console.CursorTop;
                 }
                 
-
+                // Input manager that recieves key strokes from console
                 switch(Console.ReadKey(true).Key){
                     case ConsoleKey.Escape: 
                         return;
@@ -155,7 +184,7 @@ namespace EBookProject
                         break;
                     case ConsoleKey.Enter:
                         BookReader reader = new BookReader();
-                        reader.open(bookCards[selected].Book);
+                        reader.Open(bookCards[selected].getBook());
                         return;
                 }
             
@@ -163,7 +192,12 @@ namespace EBookProject
             }
         }
 
-        private static void printInLine(string text, bool stayLast = false)
+        /// <summary>
+        /// Prints to console but keeps the left padding
+        /// </summary>
+        /// <param name="text">The text that is outputed to the console</param>
+        /// <param name="stayLast">Whether to have a new line charector at the end</param>
+        public static void PrintInLine(string text, bool stayLast = false)
         {
             int left = Console.CursorLeft;
             var lines = text.Split('\n');
@@ -181,9 +215,14 @@ namespace EBookProject
             
         }
 
-        private static void drawPageBorder(int w, int h)
+        /// <summary>
+        /// Draws the border charectors around the screen
+        /// </summary>
+        /// <param name="w">Width of the box</param>
+        /// <param name="h">Hieght of the box</param>
+        private static void DrawPageBorder(int w, int h)
         {
-            char[] border = { '─', '│', '┌', '┐', '└', '┘' };
+            
             int left = 0;
 
             Console.SetCursorPosition(left, Console.CursorTop);

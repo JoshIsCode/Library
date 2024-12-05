@@ -12,3 +12,18 @@
 /Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.pdb
 /Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.genruntimeconfig.cache
 /Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/ref/EbookProject.dll
+C:\Users\s123325\source\repos\EBookProject\EbookProject\bin\Debug\net8.0\EbookProject.exe
+C:\Users\s123325\source\repos\EBookProject\EbookProject\bin\Debug\net8.0\EbookProject.deps.json
+C:\Users\s123325\source\repos\EBookProject\EbookProject\bin\Debug\net8.0\EbookProject.runtimeconfig.json
+C:\Users\s123325\source\repos\EBookProject\EbookProject\bin\Debug\net8.0\EbookProject.dll
+C:\Users\s123325\source\repos\EBookProject\EbookProject\bin\Debug\net8.0\EbookProject.pdb
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.AssemblyInfoInputs.cache
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.AssemblyInfo.cs
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.csproj.CoreCompileInputs.cache
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.sourcelink.json
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.dll
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\refint\EbookProject.dll
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.pdb
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\EbookProject.genruntimeconfig.cache
+C:\Users\s123325\source\repos\EBookProject\EbookProject\obj\Debug\net8.0\ref\EbookProject.dll

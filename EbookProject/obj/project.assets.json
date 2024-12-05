@@ -8,25 +8,32 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/joshkarr/.nuget/packages/": {}
+    "C:\\Users\\s123325\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/EbookProject.csproj",
+      "projectUniqueName": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\EbookProject.csproj",
       "projectName": "EbookProject",
-      "projectPath": "/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/EbookProject.csproj",
-      "packagesPath": "/Users/joshkarr/.nuget/packages/",
-      "outputPath": "/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/",
+      "projectPath": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\EbookProject.csproj",
+      "packagesPath": "C:\\Users\\s123325\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\s123325\\source\\repos\\EBookProject\\EbookProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/joshkarr/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\s123325\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -65,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

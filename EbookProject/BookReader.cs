@@ -14,9 +14,12 @@ namespace EBookProject
             
         }
 
-        public char[] border = { '─', '│', '┌', '┐', '└', '┘' };
 
-        public void open(Book book)
+        /// <summary>
+        /// Opens the select book into the book reader
+        /// </summary>
+        /// <param name="book">An instance of the book class that will be displayed</param>
+        public void Open(Book book)
         {
             Console.CursorVisible = false;
 
@@ -31,29 +34,12 @@ namespace EBookProject
             {
                 if (chapter.Paragraphs.Count() > 0)
                 {
-                    string[][] pages = chapterToPages(chapter.Paragraphs, pageW - 4, pageH - 4);
+                    string[][] pages = ChapterToPages(chapter.Paragraphs, pageW - 4, pageH - 4);
                     chapters.Add(pages);
                     totalPages += pages.Length;
                 }
                     
             }
-
-            //Console.WriteLine(chapters[0].Count());
-
-            //foreach (string[][] pages in chapters)
-            //{
-            //    Console.WriteLine("\n[[[[[[[[[[]]]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[]]]]]");
-            //    foreach (string[] page in pages)
-            //    {
-            //        Console.WriteLine("-----------------");
-            //        foreach (string lin in page)
-            //        {
-            //            Console.WriteLine(lin);
-            //        }
-            //    }
-            //}
-
-            //return;
 
             int chap = 0;
             int page = 0;
@@ -68,7 +54,9 @@ namespace EBookProject
                 int top = Console.CursorTop + 2;
                 int left = Console.WindowWidth / 2 - pageW / 2 + 2;
 
-                drawPageBorder($"{book.Author} || {book.Title}", pageW, pageH);
+
+                // print the page
+                DrawPageBorder($"{book.Author} || {book.Title}", pageW, pageH);
                 Console.SetCursorPosition(left-2, Console.CursorTop);
                 Console.WriteLine($"{"[<-] Previus page".PadRight(pageW / 2 -1)}{page+1}/{totalPages}{"Next Page [->]".PadLeft(pageW / 2 - (""+ totalPages+(page+1)).Length + 1)}");
                 Console.SetCursorPosition(left-2, Console.CursorTop);
@@ -78,16 +66,10 @@ namespace EBookProject
 
                 foreach (string line in chapters[chap][chapPage])
                 {
-                    printInLine(line);
+                    Program.PrintInLine(line);
                 }
-                
-
-
-
-                // print book
 
                 // Look for input
-
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.RightArrow:
@@ -126,37 +108,45 @@ namespace EBookProject
                         break;
                     case ConsoleKey.Escape:
                         running = false;
-                        break;
+                        Program.MenuPage();
+                        return;
                 }
             }
         }
 
-        private void printInLine(string text)
-        {
-            int left = Console.CursorLeft;
-            Console.WriteLine(text);
-            Console.SetCursorPosition(left, Console.CursorTop);
-        }
-
-        private void drawPageBorder(string title, int w, int h)
+        
+        /// <summary>
+        /// Draws the border that goes around the page and the metadata at the top
+        /// </summary>
+        /// <param name="title">Text that is displayed above the book</param>
+        /// <param name="w">Width of the book</param>
+        /// <param name="h">Height of the book</param>
+        private void DrawPageBorder(string title, int w, int h)
         {
 
             int left = Console.WindowWidth/2-w/2;
 
             Console.WriteLine(new String(' ', (Console.WindowWidth-title.Length)/2) + title);
             Console.SetCursorPosition(left, Console.CursorTop);
-            Console.WriteLine(border[2]+new string(border[0],w-2) + border[3]);
+            Console.WriteLine(Program.border[2]+new string(Program.border[0],w-2) + Program.border[3]);
             Console.SetCursorPosition(left,Console.CursorTop);
             for (int i = 0; i < h - 2; i++)
             {
-                Console.WriteLine(border[1] + new string(' ', w - 2) + border[1]);
+                Console.WriteLine(Program.border[1] + new string(' ', w - 2) + Program.border[1]);
                 Console.SetCursorPosition(left, Console.CursorTop);
             }
-            Console.WriteLine(border[4] + new string(border[0], w - 2) + border[5]);
+            Console.WriteLine(Program.border[4] + new string(Program.border[0], w - 2) + Program.border[5]);
             
         }
 
-        private string[][] chapterToPages(string[] paragraphs, int w, int h)
+        /// <summary>
+        /// Splits a lists of paragraphs into multiple pages of lines.
+        /// </summary>
+        /// <param name="paragraphs">the chapter</param>
+        /// <param name="w">the max width of a line</param>
+        /// <param name="h">the max lines of a page</param>
+        /// <returns></returns>
+        private string[][] ChapterToPages(string[] paragraphs, int w, int h)
         {
             List<string[]> pages = new List<string[]>();
 
@@ -164,7 +154,7 @@ namespace EBookProject
             List<string> page = new List<string>();
             foreach (string paragraph in paragraphs)
             {
-                foreach(string line in paragraphToLines(paragraph, w))
+                foreach(string line in ParagraphToLines(paragraph, w))
                 {
                     page.Add(line);
                     if (page.Count() == h)
@@ -182,8 +172,14 @@ namespace EBookProject
 
             return pages.ToArray();
         }
-
-        private string[] paragraphToLines(string paragraph, int w)
+        
+        /// <summary>
+        /// Splits a paragraph into lines
+        /// </summary>
+        /// <param name="paragraph"></param>
+        /// <param name="w">the max number of charectors of a line</param>
+        /// <returns></returns>
+        private string[] ParagraphToLines(string paragraph, int w)
         {
             List<string> lines = new List<string>();
             string line = "";
@@ -211,10 +207,3 @@ namespace EBookProject
         }
     }
 }
-/*
-┌───────┐    ┌───────┐    ┌───────┐
-│  o o  │    │  ^  ^ │    │ *   * │
-│   >   │    │   >   │    │   -   │
-│ -──── │    │ └───┘ │    │  ~~~~ │
-└───────┘    └───────┘    └───────┘
-*/
