@@ -1,0 +1,14 @@
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/bin/Debug/net8.0/EbookProject
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/bin/Debug/net8.0/EbookProject.deps.json
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/bin/Debug/net8.0/EbookProject.runtimeconfig.json
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/bin/Debug/net8.0/EbookProject.dll
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/bin/Debug/net8.0/EbookProject.pdb
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.AssemblyInfoInputs.cache
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.AssemblyInfo.cs
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.csproj.CoreCompileInputs.cache
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.dll
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/refint/EbookProject.dll
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.pdb
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/EbookProject.genruntimeconfig.cache
+/Users/joshkarr/Desktop/code/C# Projects/projects/EbookProject/obj/Debug/net8.0/ref/EbookProject.dll

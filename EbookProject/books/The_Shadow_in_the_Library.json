@@ -1,0 +1,23 @@
+{
+    "Title": "The Shadow in the Library",
+    "Author": "Margaret Hale",
+    "Genre": "Thriller",
+    "Chapters": [
+        {
+            "Chapter Name": "The New Librarian",
+            "Paragraphs": [
+                "Claire took the job at the old library to escape her mundane life. The building was massive, its shelves stretching toward the high ceilings.",
+                "On her first day, she noticed a section roped off with a sign that read, 'Do Not Enter.'",
+                "Her curiosity piqued, she asked her supervisor about it, but he only shook his head. 'Some books are best left unread,' he said."
+            ]
+        },
+        {
+            "Chapter Name": "The Hidden Room",
+            "Paragraphs": [
+                "Unable to resist, Claire snuck into the restricted section after closing. She found a hidden door behind the shelves, its handle cold under her touch.",
+                "Inside was a room filled with ancient tomes and a single chair. As she stepped closer, she felt a chill and noticed a shadow moving in the corner.",
+                "'Who's there?' she whispered, but no one answered. The shadow grew larger, and the air grew colder as she backed toward the door."
+            ]
+        }
+    ]
+}
